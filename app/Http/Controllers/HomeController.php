@@ -36,7 +36,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        //only get the tasks created by user or assigned to him
+        //only get the tasks created by user 
         $tasks = Task::where('user_id', Auth::user()->id)->orWhere('assign',Auth::user()->id)->get();
         return view('layouts.base', ['tasks' => $tasks]);
     }
